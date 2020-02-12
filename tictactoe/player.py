@@ -16,5 +16,23 @@ class HumanPlayer(Player):
         return input_col, input_row
 
 class MockPlayer(Player):
+    def __init__(self, mark, actions):
+        super(MockPlayer, self).__init__(mark)
+        self.actions = actions
+
+
     def get_move(self, board):
-        raise NotImplementedError("smile")
+        move = self.actions.pop(0)
+        if move is None:
+            raise ValueError("MockPlayer is out of actions!")
+
+        col, row = move
+
+        if not board.valid_move(col, row):
+            raise ValueError("Action queued was invalid!")
+
+        return col, row
+
+class DummyPlayer(Player):
+    def get_move(self, board):
+        return 0, 0
