@@ -12,7 +12,7 @@ class PlayerTester(unittest.TestCase):
 
     def test_mock_player(self):
         mockPlayer = MockPlayer('O', [(0, 0)])
-        self.assertEqual(mockPlayer.get_move(), (0, 0))    
+        self.assertEqual(mockPlayer.get_move(self.board), (0, 0))    
 
 if __name__ == "__main__":
     unittest.main()
