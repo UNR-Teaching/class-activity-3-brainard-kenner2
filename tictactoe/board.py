@@ -16,9 +16,7 @@ class Board(object):
 
         :return: true on sucess, false on error
         """
-        if self.out_of_bounds(column, row):
-            return False
-        if not self.square_empty(column, row):
+        if not self.valid_move(column, row):
             return False
         self.board[column][row] = mark
         return True
@@ -38,6 +36,9 @@ class Board(object):
         if self.out_of_bounds(column, row):
             return False
         return self.board[column][row] == '_'
+
+    def valid_move(self, column, row):
+        return not self.out_of_bounds(column, row) and self.square_empty(column, row)
 
     def board_full(self):
         """
