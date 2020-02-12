@@ -10,10 +10,10 @@ class Player(object):
 
 class HumanPlayer(Player):
     def get_move(self, board):
-    print("Please enter column then row:")
-    input_col = int(input())
-    input_row = int(input())
-    return input_col, input_row
+        print("Please enter column then row:")
+        input_col = int(input())
+        input_row = int(input())
+        return input_col, input_row
 
 class MockPlayer(Player):
     def get_move(self, board):
